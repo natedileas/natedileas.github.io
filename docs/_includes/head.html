@@ -4,7 +4,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   {%- seo -%}
   <link rel="stylesheet" href="{{ "/assets/main.css" | relative_url }}">
-  <link rel="stylesheet" href="{{ "/assets/tufte.css" | relative_url }}">
+  {%- if jekyll.environment == 'production' -%}
+    <link rel="stylesheet" href="{{ "/assets/tufte.min.css" | relative_url }}">
+  {%- else -%}
+    <link rel="stylesheet" href="{{ "/assets/tufte.css" | relative_url }}">
+  {%- endif -%}
+  <script type="text/javascript" src="/assets/popups.js"></script>
   {%- feed_meta -%}
   {%- if jekyll.environment == 'production' and site.google_analytics -%}
     {%- include google-analytics.html -%}
